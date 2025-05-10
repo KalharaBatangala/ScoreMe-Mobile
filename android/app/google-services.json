@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1053170447660",
+    "project_id": "scoreme-8a0f7",
+    "storage_bucket": "scoreme-8a0f7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053170447660:android:33bfc75d716c5eb7192889",
+        "android_client_info": {
+          "package_name": "com.example.fypmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCANROihDU62GDFQeQUCOemay8SXG2WBrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
