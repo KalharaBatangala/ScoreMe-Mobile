@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fypmobile/src/components/UpdateBowler.dart';
 import 'package:fypmobile/src/components/LiveIndicator.dart';
+import 'package:fypmobile/src/components/RefreshButton.dart';
 import 'package:fypmobile/src/components/SnackBar.dart';
 import 'package:fypmobile/src/components/StopButton.dart';
 import 'package:fypmobile/src/components/StartButton.dart';
 import 'package:fypmobile/src/MatchSummary.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:fypmobile/src/components/UpdatePlayerButton.dart';
 import 'package:vibration/vibration.dart';
 import 'dart:async';
 
@@ -36,6 +39,8 @@ class _LiveScorePageState extends State<LiveScorePage> {
   int _totalRuns = 0;
   int _ballsBowled = 0;
 
+  String currentBowler = "Bowler 1";
+  String currentBatsman = "Batsman 1";
 
   _LiveScorePageState({required this.battingTeam, required this.bowlingTeam});
 
@@ -98,6 +103,16 @@ class _LiveScorePageState extends State<LiveScorePage> {
     numberofOvers = '$LHS.$RHS';
     // End Calculate Overs
   }
+
+  void updatePlayer(String bowler, String batsman) {
+    setState(() {
+      currentBowler = bowler;
+      currentBatsman = batsman;
+    });
+  }
+
+
+
 
   void _addRun(int runs) {
     if (_isPaused) {
@@ -406,6 +421,13 @@ class _LiveScorePageState extends State<LiveScorePage> {
                       ),
                     ),
                   ),
+                  
+                  
+                  // Update Player Button
+                  UpdatePlayerButton(
+                      onPageReady: () => showUpdateDialog(
+                          context, updatePlayer),
+                      buttonText: 'Update Player'),
 
                   //Undo Button
                   FloatingActionButton(onPressed: _showExitConfirmationDialog,

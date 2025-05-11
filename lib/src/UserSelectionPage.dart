@@ -12,6 +12,7 @@ class _UserSelectionPageState extends State<UserSelectionPage> {
   @override
   void initState() {
     super.initState();
+
     // Show the snackbar after the first frame is rendered
     WidgetsBinding.instance.addPostFrameCallback((_) {
       CustomSnackBar.show(
@@ -31,6 +32,7 @@ class _UserSelectionPageState extends State<UserSelectionPage> {
           'Select Role',
           style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
         backgroundColor: const Color(0xFF000435),
         iconTheme: IconThemeData(
           color: Colors.white,
@@ -40,6 +42,8 @@ class _UserSelectionPageState extends State<UserSelectionPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(

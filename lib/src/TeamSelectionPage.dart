@@ -117,7 +117,7 @@ class _TeamSelectionPageState extends State<TeamSelectionPage> {
             ),
             SizedBox(height: 8.0),
             // Team 1 Dropdown
-            isLoading? Center(child: CircularProgressIndicator(),):
+            isLoading? Center(child: CircularProgressIndicator(color: Colors.amberAccent,),):
             DropdownButtonFormField<String>(
               value: selectedTeam1,
               items: teams
@@ -148,7 +148,7 @@ class _TeamSelectionPageState extends State<TeamSelectionPage> {
             ),
             SizedBox(height: 8.0),
             // Team 2 Dropdown
-            isLoading? Center(child: CircularProgressIndicator(),):
+            isLoading? Center(child: CircularProgressIndicator(color: Colors.amberAccent,),):
             DropdownButtonFormField<String>(
               value: selectedTeam2,
               items: teams
