@@ -79,6 +79,26 @@ class _LiveScorePageState extends State<LiveScorePage> {
     super.dispose();
   }
 
+  void calculateOvers()
+  {
+
+    int over = _ballsBowled ~/ 6;   // Get integer part of the over
+    String LHS = over.toString();
+    int RHS_value=0;
+
+    if(ballsInOver == 6)
+    {
+      RHS_value = 0;               // Set the decimal part
+    }else
+    {                              // to zero if the number of balls
+      RHS_value = ballsInOver;     // in the over is equal to 6
+    }
+
+    String RHS = RHS_value.toString();
+    numberofOvers = '$LHS.$RHS';
+    // End Calculate Overs
+  }
+
   void _addRun(int runs) {
     if (_isPaused) {
       _notifyPausedState();
@@ -92,28 +112,12 @@ class _LiveScorePageState extends State<LiveScorePage> {
         ballsInOver = 0;
 
       }
-
       _currentOver.add(runs.toString());
       _totalRuns += runs;
       ballsInOver++;
       _ballsBowled++;
 
-
-      //calculate overs
-      int over = _ballsBowled ~/ 6;   // Get integer part of the over
-      String LHS = over.toString();
-      int RHS_value=0;
-
-      if(ballsInOver == 6)
-        {
-          RHS_value = 0;            // Set the decimal part
-        }else{                      // to zero if the number of balls
-        RHS_value = ballsInOver;    // in the over is equal to 6
-      }
-
-      String RHS = RHS_value.toString();
-      numberofOvers = '$LHS.$RHS';
-      // End Calculate Overs
+      calculateOvers();
 
 
     });
@@ -263,12 +267,16 @@ class _LiveScorePageState extends State<LiveScorePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('$battingTeam vs $bowlingTeam',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0,
+                    Flexible(
+                        child:Text('$battingTeam vs $bowlingTeam',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
+                          ),
+                          softWrap: true,
+                        ),
                     ),
-                    )
+
                   ],
                 ),
                 ),
