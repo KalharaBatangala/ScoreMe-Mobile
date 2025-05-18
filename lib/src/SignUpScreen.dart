@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fypmobile/src/components/SignUpButton.dart';
 
 //primary color theme of the app
 const Color primaryColor = Color(0xFF000435);
@@ -51,21 +52,27 @@ class SignupPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
-            //Sign Up Button
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll<Color>(primaryColor),
-              ),
-              onPressed: () {
 
-                // Handle signup logic
-              },
-              child: Text('Sign Up',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            // Sign Up
+            SignUpButton(onPageReady: (){}, buttonText: 'Sign Up'),
+
+
+
+            //Sign Up Button
+            // ElevatedButton(
+            //   style: ButtonStyle(
+            //     backgroundColor: WidgetStatePropertyAll<Color>(primaryColor),
+            //   ),
+            //   onPressed: () {
+            //
+            //     // Handle signup logic
+            //   },
+            //   child: Text('Sign Up',
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            // ),
             SizedBox(height: 16),
 
           ],

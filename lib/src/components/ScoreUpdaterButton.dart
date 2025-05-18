@@ -3,16 +3,16 @@ const Color primaryColor = Color(0xFF000435);
 
 
 
-class StartButton extends StatefulWidget {
+class ScoreUpdaterButton extends StatefulWidget {
   final Function onPageReady; // Callback for navigation or action
   final String buttonText;
-  const StartButton({Key? key, required this.onPageReady, required this.buttonText}) : super(key: key);
+  const ScoreUpdaterButton({Key? key, required this.onPageReady, required this.buttonText}) : super(key: key);
 
   @override
-  _StartButtonState createState() => _StartButtonState();
+  _ScoreUpdaterButtonState createState() => _ScoreUpdaterButtonState();
 }
 
-class _StartButtonState extends State<StartButton> {
+class _ScoreUpdaterButtonState extends State<ScoreUpdaterButton> {
   bool _isLoading = false;
 
   void _startLoading() async {
@@ -21,7 +21,7 @@ class _StartButtonState extends State<StartButton> {
     });
 
     // Simulate some delay (e.g., fetching data or loading resources)
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(milliseconds:300 ));
 
     setState(() {
       _isLoading = false; // Reset to initial state
@@ -44,23 +44,24 @@ class _StartButtonState extends State<StartButton> {
           padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
-
           ),
+          backgroundColor: primaryColor.withBlue(350)
         ),
         child: _isLoading
             ? SizedBox(
           height: 24.0,
           width: 24.0,
           child: CircularProgressIndicator(
-            color: primaryColor,
+            color: Colors.white,
             strokeWidth: 5.0,
           ),
         )
             : Text(
           widget.buttonText,
-          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: primaryColor ),
+          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.white ),
         ),
       ),
     );
+
   }
 }

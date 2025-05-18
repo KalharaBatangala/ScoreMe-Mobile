@@ -3,16 +3,16 @@ const Color primaryColor = Color(0xFF000435);
 
 
 
-class StartButton extends StatefulWidget {
+class OrganizerButton extends StatefulWidget {
   final Function onPageReady; // Callback for navigation or action
   final String buttonText;
-  const StartButton({Key? key, required this.onPageReady, required this.buttonText}) : super(key: key);
+  const OrganizerButton({Key? key, required this.onPageReady, required this.buttonText}) : super(key: key);
 
   @override
-  _StartButtonState createState() => _StartButtonState();
+  _OrganizerButtonState createState() => _OrganizerButtonState();
 }
 
-class _StartButtonState extends State<StartButton> {
+class _OrganizerButtonState extends State<OrganizerButton> {
   bool _isLoading = false;
 
   void _startLoading() async {
@@ -21,7 +21,7 @@ class _StartButtonState extends State<StartButton> {
     });
 
     // Simulate some delay (e.g., fetching data or loading resources)
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(milliseconds:300 ));
 
     setState(() {
       _isLoading = false; // Reset to initial state
@@ -40,12 +40,12 @@ class _StartButtonState extends State<StartButton> {
             ? null // Disable button while loading
             : _startLoading,
         style: ElevatedButton.styleFrom(
-          elevation: 3,
-          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
-
-          ),
+            elevation: 3,
+            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            backgroundColor: Colors.white,
         ),
         child: _isLoading
             ? SizedBox(
@@ -58,9 +58,10 @@ class _StartButtonState extends State<StartButton> {
         )
             : Text(
           widget.buttonText,
-          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: primaryColor ),
+          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: primaryColor.withBlue(400) ),
         ),
       ),
     );
+
   }
 }

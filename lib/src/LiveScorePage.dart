@@ -405,19 +405,22 @@ class _LiveScorePageState extends State<LiveScorePage> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                       ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            _isPaused ? Icons.play_arrow : Icons.pause,
-                            color: Colors.white,
-                          ),
-                          SizedBox(width: 8.0),
-                          Text(
-                            _isPaused ? "Resume" : "Pause",
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      child: SizedBox(
+                        width: 79.0,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              _isPaused ? Icons.play_arrow : Icons.pause,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 8.0),
+                            Text(
+                              _isPaused ? "Resume" : "Pause",
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

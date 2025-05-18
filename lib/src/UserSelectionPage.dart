@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fypmobile/src/components/ScoreUpdaterButton.dart';
+import 'package:fypmobile/src/components/OrganizerButton.dart';
 import 'OTPverificationPage.dart';
 import 'OrganizerPage.dart';
 import 'package:fypmobile/src/components/SnackBar.dart';
+
 
 class UserSelectionPage extends StatefulWidget {
   @override
@@ -43,24 +46,31 @@ class _UserSelectionPageState extends State<UserSelectionPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
+            ScoreUpdaterButton(onPageReady:()
+        {Navigator.of(context).push(MaterialPageRoute(builder: (context) => OTPVerificationPage()));}, buttonText: 'Score Updater'),
 
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => OTPVerificationPage()),
-                );
-              },
-              child: Text('Score Updater'),
-            ),
+
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => OrganizerPage()),
-                );
-              },
-              child: Text('Organizer'),
-            ),
+
+            OrganizerButton(onPageReady:()
+            {Navigator.of(context).push(MaterialPageRoute(builder: (context) => OTPVerificationPage()));}, buttonText: 'Organizer'),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(builder: (context) => OTPVerificationPage()),
+            //     );
+            //   },
+            //   child: Text('Score Updater'),
+            // ),
+
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(builder: (context) => OrganizerPage()),
+            //     );
+            //   },
+            //   child: Text('Organizer'),
+            // ),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fypmobile/src/OrganizerPage.dart';
 import 'package:fypmobile/src/UserSelectionPage.dart';
+import 'package:fypmobile/src/components/LoginButton.dart';
 import '../main.dart';
 import 'package:fypmobile/src/components/SnackBar.dart';
 import 'package:fypmobile/src/SignUpScreen.dart';
@@ -54,41 +55,36 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 16),
 
 
-            //Login Button
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll<Color>(primaryColor),
-              ),
-              onPressed: () async {
+            LoginButton(
+                onPageReady: () async {
 
-                bool loginSuccess = await _performLogin();
-                if (loginSuccess) {
-                  Navigator.of(context)
-                      .push(
-                    MaterialPageRoute(
-                      builder: (context) => UserSelectionPage(),
-                    ),
-                  );
+                  bool loginSuccess = await _performLogin();
+                  if (loginSuccess) {
+                    Navigator.of(context)
+                        .push(
+                      MaterialPageRoute(
+                        builder: (context) => UserSelectionPage(),
+                      ),
+                    );
 
-                } else {
+                  } else
+                  {
 
-                  // Show error Snackbar immediately
-                  // Using the widget method
-                  CustomSnackBar.show(
-                    context,
-                    message: "Login Failed!",
-                    backgroundColor: Colors.red,
-                    icon: Icons.error,
-                  );
-                }
-              },  //on Pressed logic End
+                    // Show error Snackbar immediately
+                    // Using the widget method
+                    CustomSnackBar.show(
+                      context,
+                      message: "Login Failed!",
+                      backgroundColor: Colors.red,
+                      icon: Icons.error,
+                    );
+                  }
+                },
 
-              child: Text('Login',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
+
+                buttonText: 'Login'),
+
+
             SizedBox(height: 10),
 
 

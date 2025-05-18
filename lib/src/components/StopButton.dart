@@ -42,44 +42,47 @@ class _StopButtonState extends State<StopButton> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: _isLoading
-          ? null // Disable button while loading
-          : _handleStopAction,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: widget.buttonColor,
-        elevation: 4,
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-      ),
-      child: _isLoading
-          ? const SizedBox(
-        height: 24.0,
-        width: 24.0,
-        child: CircularProgressIndicator(
-          color: Colors.white,
-          strokeWidth: 5.0,
-        ),
-      )
-          : Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            widget.buttonIcon,
-            color: Colors.white,
+    return SizedBox(
+      width: 150.0,
+      child: ElevatedButton(
+        onPressed: _isLoading
+            ? null // Disable button while loading
+            : _handleStopAction,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: widget.buttonColor,
+          elevation: 4,
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
           ),
-          const SizedBox(width: 8.0),
-          Text(
-            widget.buttonText,
-            style: const TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
+        ),
+        child: _isLoading
+            ? const SizedBox(
+          height: 24.0,
+          width: 24.0,
+          child: CircularProgressIndicator(
+            color: primaryColor,
+            strokeWidth: 5.0,
+          ),
+        )
+            : Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              widget.buttonIcon,
               color: Colors.white,
             ),
-          ),
-        ],
+            const SizedBox(width: 8.0),
+            Text(
+              widget.buttonText,
+              style: const TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

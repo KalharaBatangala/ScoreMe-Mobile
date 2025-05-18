@@ -41,44 +41,47 @@ class _PauseButtonState extends State<PauseButton> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: _isLoading
-          ? null // Disable button while loading
-          : _togglePause,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: widget.buttonColor,
-        elevation: 4,
-        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-      ),
-      child: _isLoading
-          ? SizedBox(
-        height: 24.0,
-        width: 24.0,
-        child: CircularProgressIndicator(
-          color: Colors.white,
-          strokeWidth: 5.0,
-        ),
-      )
-          : Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            widget.buttonIcon,
-            color: Colors.white,
+    return SizedBox(
+      width: 100.0,
+      child: ElevatedButton(
+        onPressed: _isLoading
+            ? null // Disable button while loading
+            : _togglePause,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: widget.buttonColor,
+          elevation: 4,
+          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
           ),
-          SizedBox(width: 8.0),
-          Text(
-            widget.buttonText,
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
+        ),
+        child: _isLoading
+            ? SizedBox(
+          height: 24.0,
+          width: 24.0,
+          child: CircularProgressIndicator(
+            color: Colors.white,
+            strokeWidth: 5.0,
+          ),
+        )
+            : Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              widget.buttonIcon,
               color: Colors.white,
             ),
-          ),
-        ],
+            SizedBox(width: 8.0),
+            Text(
+              widget.buttonText,
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
