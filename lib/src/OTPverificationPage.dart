@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fypmobile/src/Dashboard.dart';
 import 'TeamSelectionPage.dart';
 import 'package:fypmobile/src/components/StartButton.dart';
 import 'package:fypmobile/src/LiveScorePage.dart';
@@ -47,7 +48,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                 buttonText: 'Verify',
                 onPageReady: (){
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => TeamSelectionPage()),
+                MaterialPageRoute(builder: (context) => DashboardPage()),
               );
             }),
           ],

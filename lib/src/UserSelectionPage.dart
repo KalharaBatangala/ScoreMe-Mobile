@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fypmobile/src/TeamSelectionPage.dart';
 import 'package:fypmobile/src/components/ScoreUpdaterButton.dart';
 import 'package:fypmobile/src/components/OrganizerButton.dart';
 import 'OTPverificationPage.dart';
@@ -47,7 +48,7 @@ class _UserSelectionPageState extends State<UserSelectionPage> {
           children: [
 
             ScoreUpdaterButton(onPageReady:()
-        {Navigator.of(context).push(MaterialPageRoute(builder: (context) => OTPVerificationPage()));}, buttonText: 'Score Updater'),
+        {Navigator.of(context).push(MaterialPageRoute(builder: (context) => TeamSelectionPage()));}, buttonText: 'Score Updater'),
 
 
             const SizedBox(height: 20),

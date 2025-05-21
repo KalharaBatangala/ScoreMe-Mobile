@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fypmobile/src/Dashboard.dart';
+import 'package:fypmobile/src/UserSelectionPage.dart';
 
 class MatchSummary extends StatelessWidget {
   @override
@@ -7,11 +9,23 @@ class MatchSummary extends StatelessWidget {
       appBar: AppBar(
         title: Text("Match Summary"),
       ),
-      body: Center(
-        child: Text(
-          "Match Summary Content Goes Here",
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Column(
+        children: [
+          Center(
+            child: Text(
+              "Match Summary Content Goes Here",
+              style: TextStyle(fontSize: 24),
+            ),
+
+          ),
+          FloatingActionButton(onPressed: ()=> {
+          Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => DashboardPage()),
+          (route) => false, // Removes all previous routes
+          )
+          }),
+        ],
       ),
     );
   }
